@@ -36,27 +36,38 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => Yii::t('common', 'home'), 'url' => ['/site/index']],
+        ['label' => Yii::t('common', 'about'), 'url' => ['/site/about']],
+        ['label' => Yii::t('common', 'product'), 'url' => ['/product']],
+        ['label' => Yii::t('common', 'contact'), 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => Yii::t('common', 'signup'), 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => Yii::t('common', 'login'), 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                Yii::t('common', 'logout') . ' (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
             . '</li>';
     }
+
+    $menuItems[] = [
+        'label' => Yii::t('common', 'lang_' . strtolower(Yii::$app->session['language'])),
+        'items' => [
+            ['label' => Yii::t('common', 'lang_zh_cn'), 'url' => '/site/language?lang=zh_CN'],
+            ['label' => Yii::t('common', 'lang_en'), 'url' => '/site/language?lang=en'],
+        ],
+    ];
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
     ]);
+
     NavBar::end();
     ?>
 

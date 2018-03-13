@@ -8,10 +8,18 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    // Application name
+    'name' => 'DP Backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'imageAllowExtensions'=>['jpg','png','gif'],
+        ],
+    ],
+    'timeZone' => 'Asia/Shanghai',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -37,14 +45,20 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        'formatter' => [
+            'dateFormat' => 'yyyy-MM-dd',
+            'datetimeFormat' => 'yyyy-MM-dd HH:mm:ss',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode' => 'CNY',
+        ],
     ],
     'params' => $params,
 ];

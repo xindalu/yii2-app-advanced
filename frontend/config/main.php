@@ -8,6 +8,9 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    // Application name
+    'name' => 'DPGD',
+    'language' => 'zh_CN',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -36,14 +39,30 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+//                    'basePath' => '/locale',
+                    'fileMap' => [
+                        'common' => 'common.php',
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'modules' => [
+        'redactor' => 'yii\redactor\RedactorModule',
+        'test' => [
+            'class' => 'frontend\modules\test\Module',
+        ],
     ],
     'params' => $params,
 ];

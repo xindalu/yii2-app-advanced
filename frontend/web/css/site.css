@@ -118,3 +118,9 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/* Customize */
+.block-center {
+    text-align: center;
+    padding-top: 50px;
+}
