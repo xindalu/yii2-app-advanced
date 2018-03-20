@@ -36,14 +36,24 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
+//            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+//                    'basePath' => '/locale',
+                    'fileMap' => [
+                        'common' => 'common.php',
+                    ],
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];

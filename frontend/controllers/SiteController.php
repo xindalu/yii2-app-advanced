@@ -26,16 +26,19 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
+                // the rules are only for the actions below
                 'only' => ['logout', 'signup'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
                         'allow' => true,
+                        // ?: guest
                         'roles' => ['?'],
                     ],
                     [
                         'actions' => ['logout'],
                         'allow' => true,
+                        // @: authenticated user
                         'roles' => ['@'],
                     ],
                 ],
@@ -63,6 +66,17 @@ class SiteController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
+    }
+
+    /**
+     * Change language
+     */
+    public function actionLanguage(){
+        $language = Yii::$app->request->get('lang');
+        if(isset($language)){
+            Yii::$app->session['language'] = $language;
+        }
+        $this->goBack(Yii::$app->request->headers['Referer']);
     }
 
     /**

@@ -7,23 +7,30 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-backend',
+    'id' => 'app-api',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'backend\controllers',
+    'controllerNamespace' => 'api\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'v1' => [
+            'class' => 'api\modules\v1\Module'
+        ],
+        'v2' => [
+            'class' => 'api\modules\v2\Module'
+        ],
+    ],
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-backend',
+            'csrfParam' => '_csrf-api',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-api', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            // this is the name of the session cookie used for login on the api
+            'name' => 'advanced-api',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -39,9 +46,12 @@ return [
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
-//            'enableStrictParsing' => true,
+            'enableStrictParsing' => false,
             'showScriptName' => false,
             'rules' => [
+                'v1/default' => 'v1/default/index',
+                'v1/default/message/<id:\d+>/<message:\w+>' => 'v1/default/message',
+                'v1/default/json/<id:\d+>' => 'v1/default/json',
             ],
         ],
     ],

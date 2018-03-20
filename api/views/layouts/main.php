@@ -3,11 +3,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use api\assets\AppAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
 AppAsset::register($this);
@@ -36,30 +36,20 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => Yii::t('common', 'home'), 'url' => ['/site/index']],
-        ['label' => Yii::t('common', 'about'), 'url' => ['/site/about']],
-        ['label' => Yii::t('common', 'contact'), 'url' => ['/site/contact']],
+        ['label' => 'Home', 'url' => ['/site/index']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => Yii::t('common', 'signup'), 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => Yii::t('common', 'login'), 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
-                Yii::t('common', 'logout') . ' (' . Yii::$app->user->identity->username . ')',
+                'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
             . '</li>';
     }
-    $menuItems[] = [
-        'label' => Yii::t('common', 'lang_' . strtolower(Yii::$app->session['language'] ?: 'zh_cn')),
-        'items' => [
-            ['label' => Yii::t('common', 'lang_zh_cn'), 'url' => '/site/language?lang=zh_CN'],
-            ['label' => Yii::t('common', 'lang_en'), 'url' => '/site/language?lang=en'],
-        ],
-    ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,
