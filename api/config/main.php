@@ -25,9 +25,8 @@ return [
         ],
         'user' => [
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => false,
-            'enableSession' => false,
-            'loginUrl' => null,
+            'enableAutoLogin' => true,
+            'identityCookie' => ['name' => '_identity-api', 'httpOnly' => true],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the api
@@ -50,21 +49,9 @@ return [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-//                'v1/default' => 'v1/default/index',
-//                'v1/default/message/<id:\d+>/<message:\w+>' => 'v1/default/message',
-//                'v1/default/json/<id:\d+>' => 'v1/default/json',
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => [
-                        'v1/site',
-                    ],
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => [
-                        'v2/site',
-                    ],
-                ],
+                'v1/default' => 'v1/default/index',
+                'v1/default/message/<id:\d+>/<message:\w+>' => 'v1/default/message',
+                'v1/default/json/<id:\d+>' => 'v1/default/json',
             ],
         ],
     ],
