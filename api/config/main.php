@@ -52,6 +52,7 @@ return [
                 'v1/default' => 'v1/default/index',
                 'v1/default/message/<id:\d+>/<message:\w+>' => 'v1/default/message',
                 'v1/default/json/<id:\d+>' => 'v1/default/json',
+                'v1/restful/<id:\d+>' => 'v1/restful/index',
             ],
         ],
     ],
