@@ -121,5 +121,5 @@ a.desc:after {
 
 /* Custom */
 .home-carousel > .carousel-inner > .item > img {
-    height: 500px;width: 100%;
+    width: 100%;
 }
