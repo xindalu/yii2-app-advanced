@@ -75,9 +75,27 @@ AppAsset::register($this);
         <?= Alert::widget() ?>
         <?= Carousel::widget([
             'items' => [
-                '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
-                '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
-                '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
+                [
+                    'content' => '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
+                    'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
+                    'options' => [
+                        'class' => 'item active',
+                    ],
+                ],
+                [
+                    'content' => '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
+                    'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
+                    'options' => [
+                        'class' => 'item',
+                    ],
+                ],
+                [
+                    'content' => '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
+                    'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
+                    'options' => [
+                        'class' => 'item',
+                    ],
+                ],
             ],
         ]) ?>
         <?= $content ?>
