@@ -73,15 +73,15 @@ AppAsset::register($this);
         ],
         'items' => [
             [
-                'content' => '<img style="height: 400px;" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
+                'content' => '<img style="height: 500px;width: 100%;" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
                 'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
             ],
             [
-                'content' => '<img style="height: 400px;" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
+                'content' => '<img style="height: 500px;width: 100%;" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
                 'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
             ],
             [
-                'content' => '<img style="height: 400px;" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
+                'content' => '<img style="height: 500px;width: 100%;" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="/>',
                 'caption' => '<h4>This is title</h4><p>This is the caption text</p>',
             ],
         ],
