@@ -69,7 +69,11 @@ AppAsset::register($this);
     ?>
     <?= Carousel::widget([
         'options' => [
-            'class' => 'slide',
+            'class' => 'carousel slide',
+        ],
+        'controls' => [
+            '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span>',
+            '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span>',
         ],
         'items' => [
             [
