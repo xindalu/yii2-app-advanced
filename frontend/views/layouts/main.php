@@ -72,7 +72,6 @@ AppAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <?= Alert::widget() ?>
         <?= Carousel::widget([
             'items' => [
                 [
@@ -99,6 +98,7 @@ AppAsset::register($this);
             ],
         ]) ?>
         <?= $content ?>
+        <?= Alert::widget() ?>
     </div>
 </div>
 
