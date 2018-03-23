@@ -120,6 +120,8 @@ a.desc:after {
 }
 
 /* Custom */
-.carousel {
-    color: red;
+.home-carousel {
+    .slide-img {
+        height: 500px;width: 100%;
+    }
 }
