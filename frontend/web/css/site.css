@@ -120,6 +120,6 @@ a.desc:after {
 }
 
 /* Custom */
-.carousel-inner > .item > img {
+.home-carousel > .carousel-inner > .item > img {
     height: 500px;width: 100%;
 }
