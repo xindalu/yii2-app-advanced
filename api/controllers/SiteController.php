@@ -53,6 +53,11 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionToken()
+    {
+        echo '123';die;
+    }
+
     /**
      * Displays homepage.
      *
