@@ -6,6 +6,7 @@ use Yii;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
 use yii\rest\ActiveController;
+use yii\web\Response;
 use yii\web\UnauthorizedHttpException;
 
 class UserController extends ActiveController
@@ -28,6 +29,7 @@ class UserController extends ActiveController
 
     public function actionLogin()
     {
+        Yii::$app->response->format = Response::FORMAT_JSON;
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return [
