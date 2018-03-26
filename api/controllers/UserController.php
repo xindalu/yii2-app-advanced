@@ -13,7 +13,7 @@ class UserController extends ActiveController
     public function __construct($id, Module $module, array $config = [])
     {
         parent::__construct($id, $module, $config);
-        Yii::$app->response->format = Response::FORMAT_JSON
+        Yii::$app->response->format = Response::FORMAT_JSON;
     }
 
     public function behaviors()
