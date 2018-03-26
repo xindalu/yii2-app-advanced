@@ -8,7 +8,6 @@ use yii\filters\Cors;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\rest\ActiveController;
-use yii\web\Response;
 use yii\web\UnauthorizedHttpException;
 
 class UserController extends ActiveController
@@ -17,18 +16,6 @@ class UserController extends ActiveController
 
     public function behaviors()
     {
-//        $behaviors = parent::behaviors();
-//        $behaviors['verbs'] = [
-//            'class' => VerbFilter::className(),
-//            'actions' => [
-//                'login' => ['post', 'options'],
-//                'logout' => ['post'],
-//                'accessToken' => ['post'],
-//            ]
-//        ];
-//        $behaviors['contentNegotiator']['formats'] = [
-//            'application/json' => Response::FORMAT_JSON
-//        ];
 
         return ArrayHelper::merge([
             'verbs' => [
@@ -53,8 +40,6 @@ class UserController extends ActiveController
                 ]
             ],
         ], parent::behaviors());
-
-//        return $behaviors;
     }
 
     public function actions()
