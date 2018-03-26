@@ -42,7 +42,7 @@ class UserController extends ActiveController
                 'class' => Cors::className(),
                 'cors' => [
                     'Origin' => ['http://www.myserver.net'],
-                    'Access-Control-Request-Method' => ['GET', 'HEAD', 'OPTIONS'],
+                    'Access-Control-Request-Method' => ['GET', 'POST', 'HEAD', 'OPTIONS'],
                 ],
                 'actions' => [
                     'login' => [
