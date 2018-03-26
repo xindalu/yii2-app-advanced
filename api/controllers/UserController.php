@@ -6,6 +6,7 @@ use Yii;
 use common\models\LoginForm;
 use yii\filters\Cors;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\rest\ActiveController;
 use yii\web\Response;
 use yii\web\UnauthorizedHttpException;
