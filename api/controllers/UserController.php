@@ -44,6 +44,7 @@ class UserController extends ActiveController
                 'cors' => [
                     'Origin' => ['*'],
                     'Access-Control-Request-Method' => ['GET', 'POST', 'HEAD', 'OPTIONS'],
+                    'Access-Control-Request-Headers' => ['*'],
                 ],
                 'actions' => [
                     'login' => [
