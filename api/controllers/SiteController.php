@@ -6,6 +6,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use yii\web\Response;
 
 /**
  * Site controller
@@ -20,14 +21,13 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['login', 'error', 'logout', 'index'],
                 'rules' => [
                     [
                         'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'accessToken'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -37,6 +37,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                    'accessToken' => ['get', 'post'],
                 ],
             ],
         ];
@@ -54,9 +55,11 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionToken()
+    public function actionAccessToken()
     {
-        echo '123';die;
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        return Yii::$app->security->generateRandomString() . '_' . time();
     }
 
     /**
