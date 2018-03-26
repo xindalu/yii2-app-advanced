@@ -56,6 +56,9 @@ return [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'user',
+                    'extraPatterns' => [
+                        'POST login' => 'login',
+                    ],
                 ]
             ],
         ],
