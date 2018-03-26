@@ -4,6 +4,7 @@ namespace api\controllers;
 
 use Yii;
 use common\models\LoginForm;
+use yii\filters\Cors;
 use yii\filters\VerbFilter;
 use yii\rest\ActiveController;
 use yii\web\Response;
@@ -15,20 +16,43 @@ class UserController extends ActiveController
 
     public function behaviors()
     {
-        $behaviors = parent::behaviors();
-        $behaviors['verbs'] = [
-            'class' => VerbFilter::className(),
-            'actions' => [
-                'login' => ['post', 'options'],
-                'logout' => ['post'],
-                'accessToken' => ['post'],
-            ]
-        ];
-        $behaviors['contentNegotiator']['formats'] = [
-            'application/json' => Response::FORMAT_JSON
-        ];
+//        $behaviors = parent::behaviors();
+//        $behaviors['verbs'] = [
+//            'class' => VerbFilter::className(),
+//            'actions' => [
+//                'login' => ['post', 'options'],
+//                'logout' => ['post'],
+//                'accessToken' => ['post'],
+//            ]
+//        ];
+//        $behaviors['contentNegotiator']['formats'] = [
+//            'application/json' => Response::FORMAT_JSON
+//        ];
 
-        return $behaviors;
+        return ArrayHelper::merge([
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'login' => ['post', 'options'],
+                    'logout' => ['post'],
+                    'accessToken' => ['post'],
+                ]
+            ],
+            [
+                'class' => Cors::className(),
+                'cors' => [
+                    'Origin' => ['http://www.myserver.net'],
+                    'Access-Control-Request-Method' => ['GET', 'HEAD', 'OPTIONS'],
+                ],
+                'actions' => [
+                    'login' => [
+                        'Access-Control-Allow-Credentials' => true,
+                    ]
+                ]
+            ],
+        ], parent::behaviors());
+
+//        return $behaviors;
     }
 
     public function actions()
