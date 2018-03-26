@@ -2,11 +2,19 @@
 
 namespace api\controllers;
 
+use Yii;
 use yii\rest\ActiveController;
+use yii\web\Response;
 
 class UserController extends ActiveController
 {
     public $modelClass = 'common\models\User';
+
+    public function __construct($id, Module $module, array $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        Yii::$app->response->format = Response::FORMAT_JSON
+    }
 
     public function behaviors()
     {
