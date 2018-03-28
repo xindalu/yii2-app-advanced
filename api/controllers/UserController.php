@@ -2,6 +2,7 @@
 
 namespace api\controllers;
 
+use common\models\User;
 use Yii;
 use common\models\LoginForm;
 use yii\filters\Cors;
@@ -54,6 +55,7 @@ class UserController extends ActiveController
             return [
                 'status' => 200,
                 'message' => 'success',
+                'data' => User::findIdentity(Yii::$app->user->id),
             ];
         } else {
             throw new UnauthorizedHttpException();
