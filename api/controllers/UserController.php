@@ -22,9 +22,9 @@ class UserController extends ActiveController
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'login' => ['post'],
-                    'logout' => ['post'],
-                    'accessToken' => ['post'],
+                    'login' => ['post', 'options'],
+                    'logout' => ['post', 'options'],
+                    'accessToken' => ['post', 'options'],
                 ]
             ],
             [
