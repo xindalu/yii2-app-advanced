@@ -58,6 +58,7 @@ return [
                     'controller' => 'user',
                     'extraPatterns' => [
                         'POST login' => 'login',
+                        'POST logout' => 'logout',
                     ],
                 ]
             ],
