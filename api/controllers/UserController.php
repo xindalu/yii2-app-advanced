@@ -22,7 +22,7 @@ class UserController extends ActiveController
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'login' => ['post', 'options'],
+                    'login' => ['post'],
                     'logout' => ['post'],
                     'accessToken' => ['post'],
                 ]
@@ -36,6 +36,9 @@ class UserController extends ActiveController
                 ],
                 'actions' => [
                     'login' => [
+                        'Access-Control-Allow-Credentials' => true,
+                    ],
+                    'logout' => [
                         'Access-Control-Allow-Credentials' => true,
                     ]
                 ]
