@@ -36,12 +36,12 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'assetManager'=>array(
-            // 设置存放assets的文件目录位置
-            'basePath'=>'/data/www/style/eoa/frontend/assets',
-            // 设置访问assets目录的url地址
-            'baseUrl'=>'http://eoa.com/style/eoa/frontend/assets',
-        ),
+//        'assetManager'=>array(
+//            // 设置存放assets的文件目录位置
+//            'basePath'=>'/data/www/style/eoa/frontend/assets',
+//            // 设置访问assets目录的url地址
+//            'baseUrl'=>'http://eoa.com/style/eoa/frontend/assets',
+//        ),
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
