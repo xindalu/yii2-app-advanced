@@ -62,4 +62,12 @@ class Group extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    /**
+     * @return string
+     */
+    public function getRoot()
+    {
+        return 'root';
+    }
 }

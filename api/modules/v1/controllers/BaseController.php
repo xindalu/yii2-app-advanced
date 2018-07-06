@@ -39,4 +39,9 @@ class BaseController extends ActiveController
             ],
         ]);
     }
+
+    public function actionVersion()
+    {
+        die('V 1.0.0');
+    }
 }

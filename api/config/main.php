@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/custom/container.php';
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -55,18 +57,24 @@ return [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => ['v1/goods']
+                    'controller' => ['v1/user'],
+                    'pluralize' => false,
+                    'extraPatterns' => [
+                        'GET test' => 'test',
+                    ],
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => ['v1/user']
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => ['v1/group']
+                    'controller' => ['v1/group'],
+                    'pluralize' => false,
+                    'extraPatterns' => [
+                        'GET version' => 'version',
+                        'GET test' => 'test',
+                    ],
                 ],
             ],
         ],
     ],
+    'container' => $container,
     'params' => $params,
 ];
