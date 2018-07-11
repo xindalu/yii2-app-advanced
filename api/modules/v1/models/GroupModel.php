@@ -15,7 +15,7 @@ use yii\behaviors\TimestampBehavior;
  * @property int $created_at
  * @property int $updated_at
  */
-class Group extends \yii\db\ActiveRecord
+class GroupModel extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}

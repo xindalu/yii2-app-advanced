@@ -2,12 +2,9 @@
 
 namespace api\modules\v1\controllers;
 
-use api\modules\v1\logic\GroupLogic;
-use api\modules\v1\models\Group;
-
 class GroupController extends BaseController
 {
-    public $modelClass = 'api\modules\v1\models\Group';
+    public $modelClass = 'api\modules\v1\models\GroupModel';
 
 //    /**
 //     * Remove restful action to rewrite
@@ -26,8 +23,7 @@ class GroupController extends BaseController
      */
     public function actionTest()
     {
-        $groupLogic = new GroupLogic(new Group());
-        die($groupLogic->getRootGroup());
+        die('123');
     }
 
 }

@@ -60,7 +60,8 @@ return [
                     'controller' => ['v1/user'],
                     'pluralize' => false,
                     'extraPatterns' => [
-                        'GET test' => 'test',
+                        'GET user-test' => 'user-test',
+                        'GET user-menu-test' => 'user-menu-test',
                     ],
                 ],
                 [

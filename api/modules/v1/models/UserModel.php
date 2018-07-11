@@ -18,7 +18,7 @@ use Yii;
  * @property int $updated_at
  * @property string $access_token
  */
-class User extends \yii\db\ActiveRecord
+class UserModel extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
