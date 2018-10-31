@@ -23,21 +23,37 @@ return [
             'csrfParam' => '_csrf-api',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'api\models\User',
             'enableAutoLogin' => true,
             'enableSession' => false,
 //            'identityCookie' => ['name' => '_identity-api', 'httpOnly' => true],
         ],
-        'session' => [
-            // this is the name of the session cookie used for login on the api
-            'name' => 'advanced-api',
-        ],
+//        'session' => [
+//            // this is the name of the session cookie used for login on the api
+//            'name' => 'advanced-api',
+//        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
+//                [
+//                    'class' => 'yii\log\FileTarget',
+//                    'levels' => ['info', 'error', 'warning'],
+//                    'logVars' => ['_GET', '_POST', '_FILES', '_COOKIE', '_SESSION'],
+//                ],
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'levels' => ['info', 'trace'],
+//                    'logVars' => ['*'],
+                    'logVars' => ['_GET', '_POST', '_FILES', '_COOKIE', '_SESSION'],
+                    'categories' => ['it'],
+                    'logFile' => '@runtime/logs/it.log',
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['warning', 'error'],
+                    'logVars' => ['_GET', '_POST'],
+                    'categories' => ['we'],
+                    'logFile' => '@runtime/logs/we.log',
                 ],
             ],
         ],
@@ -55,6 +71,7 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => true,
             'rules' => [
+                '/v1/auth/<action>' => 'v1/auth/<action>',
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['v1/user'],
@@ -62,6 +79,8 @@ return [
                     'extraPatterns' => [
                         'GET user-test' => 'user-test',
                         'GET user-menu-test' => 'user-menu-test',
+                        'POST get-token' => 'get-token',
+                        'POST test' => 'test'
                     ],
                 ],
                 [
@@ -69,7 +88,6 @@ return [
                     'controller' => ['v1/group'],
                     'pluralize' => false,
                     'extraPatterns' => [
-                        'GET version' => 'version',
                         'GET test' => 'test',
                     ],
                 ],

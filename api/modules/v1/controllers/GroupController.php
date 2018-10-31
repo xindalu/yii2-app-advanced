@@ -2,7 +2,9 @@
 
 namespace api\modules\v1\controllers;
 
-class GroupController extends BaseController
+use api\controllers\ApiController;
+
+class GroupController extends ApiController
 {
     public $modelClass = 'api\modules\v1\models\GroupModel';
 

@@ -24,6 +24,6 @@ abstract class BaseDb
      */
     protected function getConcreteDb()
     {
-        return Yii::$app->get('concrete');
+        return Yii::$app->get('concreteDb');
     }
 }

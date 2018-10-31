@@ -7,6 +7,9 @@ use api\di\interfaces\UserMenuInterface;
 
 class UserMenuService implements UserMenuInterface
 {
+    /**
+     * @var UserMenuData
+     */
     private $userMenuData;
 
     public function __construct(UserMenuData $userMenuData)

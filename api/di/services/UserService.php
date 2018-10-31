@@ -34,6 +34,11 @@ class UserService implements UserInterface
 
     public function all()
     {
-        return $this->userData->all();
+        $data = $this->userData->all();
+        foreach ($data as $key => $val) {
+            $data[$key]['created_at'] = date('Y-m-d h:i:s', $val['created_at']);
+            $data[$key]['updated_at'] = date('Y-m-d h:i:s', $val['updated_at']);
+        }
+        return $data;
     }
 }

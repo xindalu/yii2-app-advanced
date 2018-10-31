@@ -3,11 +3,11 @@
 namespace api\modules\v1\controllers;
 
 use Yii;
-use common\models\LoginForm;
 use api\di\services\UserService;
 use api\di\services\UserMenuService;
+use api\controllers\ApiController;
 
-class UserController extends BaseController
+class UserController extends ApiController
 {
     /**
      * @var UserService
@@ -30,17 +30,6 @@ class UserController extends BaseController
         $this->userMenuService = Yii::$container->get('concreteUserMenuService');
     }
 
-    public function actionLogin()
-    {
-        $model = new LoginForm();
-        return $model->load(Yii::$app->request->post()) && $model->login();
-    }
-
-    public function actionLogout()
-    {
-
-    }
-
     public function actionUserTest()
     {
         die(json_encode($this->userService->all()));
@@ -48,7 +37,6 @@ class UserController extends BaseController
 
     public function actionUserMenuTest()
     {
-//        return $this->userMenuService->all();
         return Yii::createObject([
             'class' => 'yii\web\Response',
             'format' => \yii\web\Response::FORMAT_JSON,
@@ -58,6 +46,16 @@ class UserController extends BaseController
                 'code' => 200,
             ],
         ]);
+    }
+
+    public function actionGetToken()
+    {
+        return Yii::$app->security->generatePasswordHash('123');
+    }
+
+    public function actionTest()
+    {
+        die('user test');
     }
 
 }
